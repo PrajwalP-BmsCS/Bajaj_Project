@@ -486,35 +486,6 @@ mvn clean test jacoco:report
 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
  100% SUCCESS RATE
 ```
-
----
-
-##  Deployment
-
-### Docker Deployment
-
-```bash
-# Build Docker image
-docker build -t cinema-booking-api .
-
-# Run with Docker Compose
-docker-compose up -d
-```
-
-### Production Checklist
-
-- [ ] Configure production database credentials
-- [ ] Set strong JWT secret key
-- [ ] Enable HTTPS/TLS
-- [ ] Configure Redis password authentication
-- [ ] Set up Kafka cluster (if not using managed service)
-- [ ] Configure environment-specific `application-prod.yml`
-- [ ] Set up logging and monitoring
-- [ ] Configure backup strategy for PostgreSQL
-- [ ] Review and harden security settings
-
----
-
 ##  Author
 
 **Prajwal P**  
