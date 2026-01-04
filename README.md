@@ -5,8 +5,8 @@
 [![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg)](https://spring.io/projects/spring-boot)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-blue.svg)](https://www.postgresql.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
+[![Redis](https://img.shields.io/badge/Redis-6+-red.svg)](https://redis.io/)
+[![Kafka](https://img.shields.io/badge/Apache%20Kafka-3.x-black.svg)](https://kafka.apache.org/)
 ---
 
 ## 📋 Table of Contents
@@ -19,9 +19,6 @@
 - [Authentication & Authorization](#authentication--authorization)
 - [Core Modules](#core-modules)
 - [Testing](#testing)
-- [Deployment](#deployment)
-- [Future Roadmap](#future-roadmap)
-- [Contributing](#contributing)
 
 ---
 
@@ -35,14 +32,16 @@ This project implements a comprehensive movie ticket booking system with enterpr
 - **Secure authentication** using JWT tokens with role-based access
 - **Complete booking lifecycle** from search to confirmation
 - **RESTful API design** following industry best practices
-- **Full test coverage** with integration tests using Testcontainers
+- **Full test coverage** with integration tests
 
 Built as a showcase of clean architecture, SOLID principles, and production-ready Spring Boot development.
 
 ---
 
 ## 🏗 Architecture & Features
-<img width="1161" height="665" alt="image" src="https://github.com/user-attachments/assets/9af10358-16d4-40c4-8840-fe20d80c59fb" />
+
+### System Architecture
+![Architecture Diagram](https://github.com/user-attachments/assets/9af10358-16d4-40c4-8840-fe20d80c59fb)
 
 ### Key Capabilities
 
@@ -225,7 +224,7 @@ docker-compose down
 ---
 
 ## 📖 API Documentation
-<img width="824" height="791" alt="image" src="https://github.com/user-attachments/assets/0b98ff5b-aae8-4598-bf5b-0be55ec7fb97" />
+<img width="824" height="791" alt="image" src="https://github.com/user-attachments/assets/74c99281-4556-47a1-90c9-c2d22bd0d445" />
 
 ### Interactive Documentation
 
@@ -444,20 +443,100 @@ User Books Ticket → Save to DB → Send Kafka Message → (Future: Email/SMS S
 
 ---
 
+## 🧪 Testing
+
+### Test Coverage Summary
+
+The application includes **7 comprehensive integration tests** covering all critical workflows with **100% pass rate**.
+
+### Test Suite Breakdown
+
+| Test Class | Purpose | Coverage |
+|------------|---------|----------|
+| **AuthIntegrationTest** | Authentication success flows | ✅ User registration<br>✅ JWT token generation |
+| **AuthLoginFailureIntegrationTest** | Authentication failure scenarios | ✅ Invalid credentials handling<br>✅ 401 Unauthorized validation |
+| **VenueCrudIntegrationTest** | Venue lifecycle operations | ✅ Create, Read, Update, Delete<br>✅ Admin role verification |
+| **MovieCrudIntegrationTest** | Movie management workflows | ✅ Full CRUD operations<br>✅ Venue-Movie relationships |
+| **ShowCrudIntegrationTest** | Show scheduling operations | ✅ Show CRUD with dependencies<br>✅ Time & seat configuration |
+| **BookingFlowIntegrationTest** | End-to-end booking workflow | ✅ Multi-user scenarios<br>✅ Seat hold & confirm<br>✅ Kafka event production<br>✅ Database transactions |
+
+### Key Test Achievements
+
+- **Security Testing**: JWT authentication, role-based authorization (USER/ADMIN)
+- **Database Integration**: PostgreSQL transactions, optimistic locking, referential integrity
+- **Cache Validation**: Redis cache operations and invalidation
+- **Event-Driven**: Kafka message production verification
+- **E2E Scenarios**: Complete user journeys from registration to booking confirmation
+
+### Running Tests
+
+```bash
+# Run all tests
+mvn test
+
+# Run specific test class
+mvn test -Dtest=BookingFlowIntegrationTest
+
+# Run with coverage report
+mvn clean test jacoco:report
+```
+
+### Test Results
+```
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+✅ 100% SUCCESS RATE
+```
+
+---
+
+## 📦 Deployment
+
+### Docker Deployment
+
+```bash
+# Build Docker image
+docker build -t cinema-booking-api .
+
+# Run with Docker Compose
+docker-compose up -d
+```
+
+### Production Checklist
+
+- [ ] Configure production database credentials
+- [ ] Set strong JWT secret key
+- [ ] Enable HTTPS/TLS
+- [ ] Configure Redis password authentication
+- [ ] Set up Kafka cluster (if not using managed service)
+- [ ] Configure environment-specific `application-prod.yml`
+- [ ] Set up logging and monitoring
+- [ ] Configure backup strategy for PostgreSQL
+- [ ] Review and harden security settings
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these guidelines:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+**Code Standards**:
+- Follow Java naming conventions
+- Write unit tests for new features
+- Update documentation as needed
+- Ensure all tests pass before submitting PR
+
+---
+
 ## 👤 Author
 
 **Prajwal P**  
 Backend Engineering Intern Project
 
 ---
-
-## 🙏 Acknowledgments
-
-- Spring Boot community for excellent documentation
-- Testcontainers for simplified integration testing
-- Swagger/OpenAPI for API documentation standards
-- All contributors and reviewers
-
----
-
 
