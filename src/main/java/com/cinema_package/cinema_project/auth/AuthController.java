@@ -1,10 +1,12 @@
 package com.cinema_package.cinema_project.auth;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.cinema_package.cinema_project.enums.Role;
 import com.cinema_package.cinema_project.security.JwtUtil;
@@ -36,18 +38,21 @@ public class AuthController {
         return "User registered successfully";
     }
     
-    @PostMapping("/login")
-    public String login(@RequestBody User loginRequest) {
+@PostMapping("/login")
+public String login(@RequestBody User loginRequest) {
 
-        User user = userRepository.findByEmail(loginRequest.getEmail())
-                .orElseThrow(() -> new RuntimeException("User not found"));
+    User user = userRepository.findByEmail(loginRequest.getEmail())
+            .orElseThrow(() ->
+                    new ResponseStatusException(
+                            HttpStatus.UNAUTHORIZED, "Invalid credentials"));
 
-        if (!encoder.matches(
-                loginRequest.getPassword(), user.getPassword())) {
-            throw new RuntimeException("Invalid password");
-        }
-
-        return JwtUtil.generateToken(user.getEmail());
+    if (!encoder.matches(loginRequest.getPassword(), user.getPassword())) {
+        throw new ResponseStatusException(
+                HttpStatus.UNAUTHORIZED, "Invalid credentials");
     }
+
+    return JwtUtil.generateToken(user.getEmail());
+}
+
 
 }

@@ -1,5 +1,7 @@
 package com.cinema_package.cinema_project.common;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
@@ -12,6 +14,8 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     // 400 — Bad Request (validation, illegal args)
     @ExceptionHandler(IllegalArgumentException.class)
@@ -82,6 +86,8 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiError> handleGeneric(
             Exception ex,
             HttpServletRequest request) {
+
+        log.error("Unhandled exception while processing request {}", request.getRequestURI(), ex);
 
         ApiError error = new ApiError(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),

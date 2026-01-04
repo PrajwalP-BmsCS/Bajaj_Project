@@ -4,6 +4,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
+// @Profile("!test")
 public class BookingEventProducer {
 
     private final KafkaTemplate<String, BookingConfirmedEvent> kafkaTemplate;
