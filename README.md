@@ -22,7 +22,7 @@
 
 ---
 
-## 🎯 Overview
+## 🎯 Overview<a id="overview"></a>
 
 This project implements a comprehensive movie ticket booking system with enterprise-grade features including:
 
@@ -38,7 +38,7 @@ Built as a showcase of clean architecture, SOLID principles, and production-read
 
 ---
 
-## 🏗 Architecture & Features
+## 🏗 Architecture & Features <a id="architecture--features"></a>
 
 ### System Architecture
 ![Architecture Diagram](https://github.com/user-attachments/assets/9af10358-16d4-40c4-8840-fe20d80c59fb)
@@ -76,7 +76,7 @@ Built as a showcase of clean architecture, SOLID principles, and production-read
 
 ---
 
-## 🛠 Technology Stack
+## 🛠 Technology Stack<a id="technology-stack"></a>
 
 ### Core Framework
 - **Java 17** - LTS version with modern language features
@@ -102,7 +102,7 @@ Built as a showcase of clean architecture, SOLID principles, and production-read
 - **springdoc-openapi** - OpenAPI 3.0 specification
 - **Swagger UI** - Interactive API documentation
 
-### Testing
+### Tests
 - **JUnit 5** - Unit testing framework
 - **MockMvc** - Spring MVC test framework
 - **AssertJ** - Fluent assertions
@@ -114,7 +114,7 @@ Built as a showcase of clean architecture, SOLID principles, and production-read
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Getting Started<a id="getting-started"></a>
 
 ### Prerequisites
 
@@ -223,7 +223,7 @@ docker-compose down
 
 ---
 
-## 📖 API Documentation
+## 📖 API Documentation<a id="api-documentation"></a>
 <img width="824" height="791" alt="image" src="https://github.com/user-attachments/assets/74c99281-4556-47a1-90c9-c2d22bd0d445" />
 
 ### Interactive Documentation
@@ -295,7 +295,7 @@ Once the application is running, access the Swagger UI:
 
 ---
 
-## 🔐 Authentication & Authorization
+## 🔐 Authentication & Authorization<a id="authentication--authorization"></a>
 
 ### User Roles
 
@@ -342,7 +342,7 @@ curl -X GET http://localhost:8080/movie \
 
 ---
 
-## 🧩 Core Modules
+## 🧩 Core Modules<a id="core-modules"></a>
 
 ### Project Structure
 
@@ -443,7 +443,7 @@ User Books Ticket → Save to DB → Send Kafka Message → (Future: Email/SMS S
 
 ---
 
-## 🧪 Testing
+## 🧪 Testing<a id="testing"></a>
 
 ### Test Coverage Summary
 
