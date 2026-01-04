@@ -5,11 +5,11 @@
 [![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg)](https://spring.io/projects/spring-boot)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-blue.svg)](https://www.postgresql.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
+[![Redis](https://img.shields.io/badge/Redis-6+-red.svg)](https://redis.io/)
+[![Kafka](https://img.shields.io/badge/Apache%20Kafka-3.x-black.svg)](https://kafka.apache.org/)
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Architecture & Features](#architecture--features)
@@ -19,13 +19,10 @@
 - [Authentication & Authorization](#authentication--authorization)
 - [Core Modules](#core-modules)
 - [Testing](#testing)
-- [Deployment](#deployment)
-- [Future Roadmap](#future-roadmap)
-- [Contributing](#contributing)
 
 ---
 
-## 🎯 Overview
+## Overview<a id="overview"></a>
 
 This project implements a comprehensive movie ticket booking system with enterprise-grade features including:
 
@@ -35,13 +32,16 @@ This project implements a comprehensive movie ticket booking system with enterpr
 - **Secure authentication** using JWT tokens with role-based access
 - **Complete booking lifecycle** from search to confirmation
 - **RESTful API design** following industry best practices
-- **Full test coverage** with integration tests using Testcontainers
+- **Full test coverage** with integration tests
 
 Built as a showcase of clean architecture, SOLID principles, and production-ready Spring Boot development.
 
 ---
 
-## 🏗 Architecture & Features
+##  Architecture & Features <a id="architecture--features"></a>
+
+### System Architecture
+![Architecture Diagram](https://github.com/user-attachments/assets/9af10358-16d4-40c4-8840-fe20d80c59fb)
 
 ### Key Capabilities
 
@@ -60,23 +60,23 @@ Built as a showcase of clean architecture, SOLID principles, and production-read
 
 ### Security Features
 
-- ✅ JWT-based stateless authentication
-- ✅ Role-based access control (USER/ADMIN)
-- ✅ Password encryption with BCrypt
-- ✅ Secured endpoints with Spring Security
-- ✅ Bearer token authorization
+-  JWT-based stateless authentication
+-  Role-based access control (USER/ADMIN)
+-  Password encryption with BCrypt
+-  Secured endpoints with Spring Security
+-  Bearer token authorization
 
 ### Data Integrity
 
-- ✅ Transactional booking operations
-- ✅ Optimistic locking for seat reservations
-- ✅ Automatic seat hold expiration
-- ✅ Referential integrity with foreign keys
-- ✅ Validation at API and service layers
+-  Transactional booking operations
+-  Optimistic locking for seat reservations
+-  Automatic seat hold expiration
+-  Referential integrity with foreign keys
+-  Validation at API and service layers
 
 ---
 
-## 🛠 Technology Stack
+##  Technology Stack<a id="technology-stack"></a>
 
 ### Core Framework
 - **Java 17** - LTS version with modern language features
@@ -102,7 +102,7 @@ Built as a showcase of clean architecture, SOLID principles, and production-read
 - **springdoc-openapi** - OpenAPI 3.0 specification
 - **Swagger UI** - Interactive API documentation
 
-### Testing
+### Tests
 - **JUnit 5** - Unit testing framework
 - **MockMvc** - Spring MVC test framework
 - **AssertJ** - Fluent assertions
@@ -114,7 +114,7 @@ Built as a showcase of clean architecture, SOLID principles, and production-read
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started<a id="getting-started"></a>
 
 ### Prerequisites
 
@@ -223,7 +223,8 @@ docker-compose down
 
 ---
 
-## 📖 API Documentation
+##  API Documentation<a id="api-documentation"></a>
+<img width="824" height="791" alt="image" src="https://github.com/user-attachments/assets/74c99281-4556-47a1-90c9-c2d22bd0d445" />
 
 ### Interactive Documentation
 
@@ -294,7 +295,7 @@ Once the application is running, access the Swagger UI:
 
 ---
 
-## 🔐 Authentication & Authorization
+##  Authentication & Authorization<a id="authentication--authorization"></a>
 
 ### User Roles
 
@@ -341,7 +342,7 @@ curl -X GET http://localhost:8080/movie \
 
 ---
 
-## 🧩 Core Modules
+##  Core Modules<a id="core-modules"></a>
 
 ### Project Structure
 
@@ -442,20 +443,53 @@ User Books Ticket → Save to DB → Send Kafka Message → (Future: Email/SMS S
 
 ---
 
-## 👤 Author
+##  Testing<a id="testing"></a>
+
+### Test Coverage Summary
+
+The application includes **7 comprehensive integration tests** covering all critical workflows with **100% pass rate**.
+
+### Test Suite Breakdown
+
+| Test Class | Purpose | Coverage |
+|------------|---------|----------|
+| **AuthIntegrationTest** | Authentication success flows |  User registration<br> JWT token generation |
+| **AuthLoginFailureIntegrationTest** | Authentication failure scenarios |  Invalid credentials handling<br> 401 Unauthorized validation |
+| **VenueCrudIntegrationTest** | Venue lifecycle operations |  Create, Read, Update, Delete<br> Admin role verification |
+| **MovieCrudIntegrationTest** | Movie management workflows |  Full CRUD operations<br> Venue-Movie relationships |
+| **ShowCrudIntegrationTest** | Show scheduling operations |  Show CRUD with dependencies<br> Time & seat configuration |
+| **BookingFlowIntegrationTest** | End-to-end booking workflow |  Multi-user scenarios<br> Seat hold & confirm<br> Kafka event production<br> Database transactions |
+
+### Key Test Achievements
+
+- **Security Testing**: JWT authentication, role-based authorization (USER/ADMIN)
+- **Database Integration**: PostgreSQL transactions, optimistic locking, referential integrity
+- **Cache Validation**: Redis cache operations and invalidation
+- **Event-Driven**: Kafka message production verification
+- **E2E Scenarios**: Complete user journeys from registration to booking confirmation
+
+### Running Tests
+
+```bash
+# Run all tests
+mvn test
+
+# Run specific test class
+mvn test -Dtest=BookingFlowIntegrationTest
+
+# Run with coverage report
+mvn clean test jacoco:report
+```
+
+### Test Results
+```
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+ 100% SUCCESS RATE
+```
+##  Author
 
 **Prajwal P**  
 Backend Engineering Intern Project
 
 ---
-
-## 🙏 Acknowledgments
-
-- Spring Boot community for excellent documentation
-- Testcontainers for simplified integration testing
-- Swagger/OpenAPI for API documentation standards
-- All contributors and reviewers
-
----
-
 
