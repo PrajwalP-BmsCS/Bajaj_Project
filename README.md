@@ -9,7 +9,7 @@
 [![Kafka](https://img.shields.io/badge/Apache%20Kafka-3.x-black.svg)](https://kafka.apache.org/)
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Architecture & Features](#architecture--features)
@@ -22,7 +22,7 @@
 
 ---
 
-## 🎯 Overview<a id="overview"></a>
+## Overview<a id="overview"></a>
 
 This project implements a comprehensive movie ticket booking system with enterprise-grade features including:
 
@@ -38,7 +38,7 @@ Built as a showcase of clean architecture, SOLID principles, and production-read
 
 ---
 
-## 🏗 Architecture & Features <a id="architecture--features"></a>
+##  Architecture & Features <a id="architecture--features"></a>
 
 ### System Architecture
 ![Architecture Diagram](https://github.com/user-attachments/assets/9af10358-16d4-40c4-8840-fe20d80c59fb)
@@ -60,23 +60,23 @@ Built as a showcase of clean architecture, SOLID principles, and production-read
 
 ### Security Features
 
-- ✅ JWT-based stateless authentication
-- ✅ Role-based access control (USER/ADMIN)
-- ✅ Password encryption with BCrypt
-- ✅ Secured endpoints with Spring Security
-- ✅ Bearer token authorization
+-  JWT-based stateless authentication
+-  Role-based access control (USER/ADMIN)
+-  Password encryption with BCrypt
+-  Secured endpoints with Spring Security
+-  Bearer token authorization
 
 ### Data Integrity
 
-- ✅ Transactional booking operations
-- ✅ Optimistic locking for seat reservations
-- ✅ Automatic seat hold expiration
-- ✅ Referential integrity with foreign keys
-- ✅ Validation at API and service layers
+-  Transactional booking operations
+-  Optimistic locking for seat reservations
+-  Automatic seat hold expiration
+-  Referential integrity with foreign keys
+-  Validation at API and service layers
 
 ---
 
-## 🛠 Technology Stack<a id="technology-stack"></a>
+##  Technology Stack<a id="technology-stack"></a>
 
 ### Core Framework
 - **Java 17** - LTS version with modern language features
@@ -114,7 +114,7 @@ Built as a showcase of clean architecture, SOLID principles, and production-read
 
 ---
 
-## 🚀 Getting Started<a id="getting-started"></a>
+##  Getting Started<a id="getting-started"></a>
 
 ### Prerequisites
 
@@ -223,7 +223,7 @@ docker-compose down
 
 ---
 
-## 📖 API Documentation<a id="api-documentation"></a>
+##  API Documentation<a id="api-documentation"></a>
 <img width="824" height="791" alt="image" src="https://github.com/user-attachments/assets/74c99281-4556-47a1-90c9-c2d22bd0d445" />
 
 ### Interactive Documentation
@@ -295,7 +295,7 @@ Once the application is running, access the Swagger UI:
 
 ---
 
-## 🔐 Authentication & Authorization<a id="authentication--authorization"></a>
+##  Authentication & Authorization<a id="authentication--authorization"></a>
 
 ### User Roles
 
@@ -342,7 +342,7 @@ curl -X GET http://localhost:8080/movie \
 
 ---
 
-## 🧩 Core Modules<a id="core-modules"></a>
+##  Core Modules<a id="core-modules"></a>
 
 ### Project Structure
 
@@ -443,7 +443,7 @@ User Books Ticket → Save to DB → Send Kafka Message → (Future: Email/SMS S
 
 ---
 
-## 🧪 Testing<a id="testing"></a>
+##  Testing<a id="testing"></a>
 
 ### Test Coverage Summary
 
@@ -453,12 +453,12 @@ The application includes **7 comprehensive integration tests** covering all crit
 
 | Test Class | Purpose | Coverage |
 |------------|---------|----------|
-| **AuthIntegrationTest** | Authentication success flows | ✅ User registration<br>✅ JWT token generation |
-| **AuthLoginFailureIntegrationTest** | Authentication failure scenarios | ✅ Invalid credentials handling<br>✅ 401 Unauthorized validation |
-| **VenueCrudIntegrationTest** | Venue lifecycle operations | ✅ Create, Read, Update, Delete<br>✅ Admin role verification |
-| **MovieCrudIntegrationTest** | Movie management workflows | ✅ Full CRUD operations<br>✅ Venue-Movie relationships |
-| **ShowCrudIntegrationTest** | Show scheduling operations | ✅ Show CRUD with dependencies<br>✅ Time & seat configuration |
-| **BookingFlowIntegrationTest** | End-to-end booking workflow | ✅ Multi-user scenarios<br>✅ Seat hold & confirm<br>✅ Kafka event production<br>✅ Database transactions |
+| **AuthIntegrationTest** | Authentication success flows |  User registration<br> JWT token generation |
+| **AuthLoginFailureIntegrationTest** | Authentication failure scenarios |  Invalid credentials handling<br> 401 Unauthorized validation |
+| **VenueCrudIntegrationTest** | Venue lifecycle operations |  Create, Read, Update, Delete<br> Admin role verification |
+| **MovieCrudIntegrationTest** | Movie management workflows |  Full CRUD operations<br> Venue-Movie relationships |
+| **ShowCrudIntegrationTest** | Show scheduling operations |  Show CRUD with dependencies<br> Time & seat configuration |
+| **BookingFlowIntegrationTest** | End-to-end booking workflow |  Multi-user scenarios<br> Seat hold & confirm<br> Kafka event production<br> Database transactions |
 
 ### Key Test Achievements
 
@@ -484,12 +484,12 @@ mvn clean test jacoco:report
 ### Test Results
 ```
 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
-✅ 100% SUCCESS RATE
+ 100% SUCCESS RATE
 ```
 
 ---
 
-## 📦 Deployment
+##  Deployment
 
 ### Docker Deployment
 
@@ -515,7 +515,7 @@ docker-compose up -d
 
 ---
 
-## 👤 Author
+##  Author
 
 **Prajwal P**  
 Backend Engineering Intern Project
