@@ -42,6 +42,7 @@ Built as a showcase of clean architecture, SOLID principles, and production-read
 ---
 
 ## 🏗 Architecture & Features
+<img width="1161" height="665" alt="image" src="https://github.com/user-attachments/assets/9af10358-16d4-40c4-8840-fe20d80c59fb" />
 
 ### Key Capabilities
 
@@ -224,6 +225,7 @@ docker-compose down
 ---
 
 ## 📖 API Documentation
+<img width="824" height="791" alt="image" src="https://github.com/user-attachments/assets/0b98ff5b-aae8-4598-bf5b-0be55ec7fb97" />
 
 ### Interactive Documentation
 
